@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jobs</title>
+  <style>
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header a {
+      margin: 15px;
+    }
+
+    section {
+      width: 50%;
+      margin: 0 auto;
+      font-weight: bold;
+    }
+
+    article hr {
+      margin: 40px 0;
+      opacity: .5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Remote Jobs</h1>
+    <h3>{{resultsNumber}} {{searchingBy}} jobs found.</h3>
+    <a href="/export?word={{searchingBy}}">Export to CSV</a>
+    <a href="/">↖ ️Go back</a>
+  </header>
+  <section>
+    {% for job in jobs %}
+    <article>
+      <p>{{job.title}}</p>
+      <p>{{job.company}}</p>
+      <a href="{{job.link}}">Apply</a>
+      <hr />
+    </article>
+    {% endfor %}
+  </section>
+</body>
+</html>
